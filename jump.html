@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="cn"><head>
+  <link rel="icon" type="image/jpg" href="image/google.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="5;url=https://qianluo0721.github.io" />
+<title>外链跳转提醒</title>
+<style>
+body{margin:0;padding:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff}
+@media (prefers-color-scheme: dark) {
+    body{background:#66CCFF}
+}
+@keyframes blinkCursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typeAndDelete {
+  0%,
+  10% {
+    width: 0;
+  }
+
+  45%,
+  55% {
+    width: 13em;
+  }
+
+  90%,
+  100% {
+    width: 0;
+  }
+}
+
+.terminal-loader {
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+  background: #1c1c1c;
+  border: 1px solid #ffffff3e;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.terminal-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #343434;
+  padding: 6px;
+}
+
+.terminal-controls {
+  position: absolute;
+  left: 10px;
+  display: flex;
+  gap: 7px;
+}
+
+.control {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #777;
+}
+
+.control.close {
+  background-color: #e33;
+}
+
+.control.minimize {
+  background-color: #ee0;
+}
+
+.control.maximize {
+  background-color: #0b0;
+}
+
+.terminal-title {
+  color: #eeeeeec1;
+}
+
+.content {
+  padding: 10px;
+}
+.text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid green;
+  animation: typeAndDelete 4s steps(11) infinite,
+    blinkCursor 0.5s step-end infinite alternate;
+  color: rgb(0, 196, 0);
+  font-weight: 600;
+}
+
+</style>
+<script src="https://qianluo0721.github.io"></script>
+</head>
+
+<body>
+    <div class="terminal-loader">
+  <div class="terminal-header">
+    <div class="terminal-title">控制台</div>
+    <div class="terminal-controls">
+      <div class="control close"></div>
+      <div class="control minimize"></div>
+      <div class="control maximize"></div>
+    </div>
+  </div>
+  <div class="content">
+     <div class="text">即将在<span id="timer">3</span>秒后跳转至外部页面</div>
+  </div>
+</div>
+
+ 
+  <script>
+    let countDownTime = 3;
+    let timerElement = document.getElementById("timer");
+    let interval = setInterval(function () {
+      if (countDownTime > 0) {
+        timerElement.innerHTML = countDownTime;
+        countDownTime--;
+      }
+    }, 1000);
+
+  </script>
+
+</body>
+</html>
