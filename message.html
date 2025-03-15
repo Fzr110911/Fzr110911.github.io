@@ -22,24 +22,22 @@
           <div class="img-container1">
             <img src="image/message.png" alt="一个朴实无华的留言区，需先用GitHub登录，不会的可以查询官方文档:https://docs.github.com/zh/get-started/start-your-journey/creating-an-account-on-github">
           </div>
-          
-          <script src="https://giscus.app/client.js"
-          data-repo="Fzr110911/Fzr110911.github.io"
-          data-repo-id="R_kgDONr955g"
-          data-category="Show and tell"
-          data-category-id="DIC_kwDONr955s4Cm5aZ"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
-          data-loading="lazy"
-          crossorigin="anonymous"
-          async>
-  </script>
-
+          <head>
+    ..
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    ...
+</head>
+<body>
+    ...
+    <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'O497OkrO24ZWg94vgtMr4EUQ-gzGzoHsz',
+            appKey: 'A3hjOWVvAi17fxaGJCQJAF64'
+        })
+    </script>
+</body>
   <!-- 底部 -->
   <footer>
     &copy; 2025 千落-QIANLUO
