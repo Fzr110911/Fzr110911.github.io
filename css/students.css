@@ -1,0 +1,117 @@
+/* 基本样式 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color:#FFF5EE;
+  }
+  
+  /* 导航栏样式 */
+  nav {
+    background-color: #66ccff; /* 蔚蓝背景 */
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    padding: 10px 50px;
+  }
+  nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 15px; /* 格子部分圆滑处理 */
+    margin-right: 10px; /* 部分格子之间增加间距 */
+  }
+  nav a:hover {
+    background-color: #ffffff; /* 鼠标悬停时的背景颜色 */
+    color: #ff7f50; /* 鼠标悬停时的文字颜色 */
+  }
+   /* 主要区域样式 */
+  #main {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+  
+  .banner-container {
+    position: relative;
+  }
+  
+  .img-container1 {
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .img-container1 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .text-container1  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 10; /* 去除标题顶部的默认边距 */
+    text-align: left; /* 将标题文字左对齐 */
+  }
+  
+  .image-text-container {
+    margin-top: 50px;
+  }
+  
+  .image-text-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   /* 新增指定纵向居中对齐 */
+    margin-bottom: 30px;
+  }
+  
+  .image-text-item {
+    width: calc(33.33% - 20px);  /* 减去横向边距，每行显示3个 */
+    margin-right: 20px;
+    position: relative;
+  }
+  
+  /* 最后一个图片不需要右边距 */
+  .image-text-item:last-child {
+    margin-right: 0;
+  }
+  
+  .image-text-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .image-text-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 14px;
+    opacity: 0;   /* 新增将文字透明度设为0 */
+    transition: opacity 0.2s;   /* 新增淡入淡出效果 */
+  }
+  
+  /* 鼠标悬停时显示文字 */
+  .image-text-item:hover .image-text-info {
+    opacity: 1;
+  }
+  
+  /* 保证文字不超出图片长度 */
+  .image-text-info p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  /* 底部样式 */
+  footer {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+  }
