@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="icon" type="image/jpg" href="image/6.jpg">
+  <meta charset="UTF-8">
+  <title>初一12班 - 学生 - 页面1 - 2024秋~2025夏</title>
+  <link rel="stylesheet" href="css/students.css">
+  <style>
+    /* 新增动画效果 */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    body {
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    nav a {
+      opacity: 0;
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .img-container1 {
+      animation: scaleIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+
+    .text-container1 {
+      animation: fadeIn 0.8s 0.3s ease-out forwards;
+    }
+  </style>
+  <style>
+    /* 修正重复的 style 标签 */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .image-text-item {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 0.6s ease-out forwards;
+        transition: transform 0.3s ease;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .image-text-item img {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .image-text-info {
+        border-radius: 0 0 12px 12px;
+    }
+</style>
+<style>
+    .image-text-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* 延迟动画 */
+    nav a:nth-child(1) { animation-delay: 0.2s; }
+    nav a:nth-child(2) { animation-delay: 0.3s; }
+    nav a:nth-child(3) { animation-delay: 0.4s; }
+    nav a:nth-child(4) { animation-delay: 0.5s; }
+
+    .image-text-row:nth-child(1) .image-text-item { animation-delay: 0.4s; }
+    .image-text-row:nth-child(2) .image-text-item { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <a href="home.html">首页</a>
+        <a href="home.html">班级简介</a>
+        <a href="students.html">学生</a>
+        <a href="message.html">留言</a>
+    </nav>
+      
+<!-- 主要区域 -->
+<div id="main">
+    <div id="qianluo">
+        <div class="qianluo">
+          <div class="img-container1">
+            <img src="image/国旗4096.png" alt="祖国万岁！" title="中华人民共和国国旗是五星红旗。
+            中华人民共和国国旗是中华人民共和国的象征和标志。每个公民和组织，都应当尊重和爱护国旗。
+            ——中华人民共和国国旗法">
+          </div>
+          <div class="text-container1">
+            <h1>学生</h1>
+          </div>
+          <div class="image-text-container">
+            <div class="image-text-row">
+              <div class="image-text-item">
+                <img src="image/1.jpg" alt="">
+                <div class="image-text-info">
+                  <p>唐宇恒 班长 伟大无需多言</p>
+                </div>
+              </div>
+              <div class="image-text-item">
+                <img src="image/2.jpg" alt="">
+                <div class="image-text-info">
+                  <p>孙雨涵 学生 hehe</p>
+                </div>
+              </div>
+              <div class="image-text-item">
+                <img src="image/3.jpg" alt="">
+                <div class="image-text-info">
+                  <p>叶晟 学生 体育好</p>
+                </div>
+              </div>
+            </div>
+            <div class="image-text-row">
+              <div class="image-text-item">
+                <img src="image/4.jpg" alt="">
+                <div class="image-text-info">
+                  <p>房子瑞 学生 站长</p>
+                </div>
+              </div>
+              <div class="image-text-item">
+                <img src="image/5.jpg" alt="">
+                <div class="image-text-info">
+                  <p>谭思源 英语、体育课代表 “政治家”</p>
+                </div>
+              </div>
+              <div class="image-text-item">
+  <div class="image-text-item">
+    <a href="students2.html">
+        下一页
+    </a>
+</div>
+
+<style>
+/* 优化下一页按钮 */
+.next-page {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+    border-radius: 8px;
+    padding: 12px 24px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.next-page .page-text {
+    font-size: 1.4em;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.next-page:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(52, 152, 219, 0.2);
+}
+
+.next-page:hover .page-text {
+    letter-spacing: 1.5px;
+}
+
+.button-hint {
+    bottom: -30px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+</style>
+
+<style>
+/* 修改按钮样式 */
+.page-button {
+    display: flex;
+    height: 80px;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #3498db;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.page-button:hover .page-text {
+    color: #2980b9;
+    transform: scale(1.2);
+}
+
+/* 调整提示位置 */
+.button-hint {
+    bottom: -25px;
+    top: auto;
+}
+</style>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+    <!-- 底部 -->
+    <footer>
+      &copy; 2025 千落-QIANLUO
+    </footer>
+</body>
+</html>

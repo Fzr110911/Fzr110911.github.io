@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="icon" type="image/jpg" href="image/6.jpg">
+  <meta charset="UTF-8">
+  <title>初一12班 - 班级简介 - 2024秋~2025夏</title>
+  <link rel="stylesheet" href="css/main.css">
+  <meta name='description' content='班，学校，班级，黄桥初中初一12班,黄桥初中教育集团初一12班，黄桥初中教育集团新城分校初一12班，初一12班，初一十二班，初一12'>
+  <style>
+    /* 添加加载动画 */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .loader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loader .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* 导航栏悬停效果 */
+    nav a {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav a:hover {
+      color: #3498db;
+      transform: translateY(-3px);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3498db;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* 卡片悬停动画 */
+    .card {
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    /* 返回顶部按钮 */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #3498db;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 99;
+    }
+    .back-to-top.active {
+      opacity: 1;
+    }
+    .back-to-top:hover {
+      background: #2980b9;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+  <!-- 添加加载动画 -->
+  <div class="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- 导航栏 -->
+  <!-- 删除导航栏中的按钮 -->
+  <nav>
+      <a href="home.html">首页</a>
+      <a href="home.html">班级简介</a>
+      <a href="students.html">学生</a>
+      <a href="message.html">留言</a>
+      <a href="jump.html">班级QQ群</a>
+      <!-- 删除原有按钮容器 -->
+  </nav>
+  
+  <!-- 在页面底部添加悬浮按钮 -->
+  <div class="floating-theme">
+      <button id="theme-toggle" class="theme-toggle" title="切换主题">
+          <span class="theme-icon">🌓</span>
+          <span class="theme-tooltip">主题切换</span>
+      </button>
+  </div>
+  
+  <style>
+  /* 新增悬浮按钮样式 */
+  .floating-theme {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+  }
+  
+  .theme-toggle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 2px solid var(--nav-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+  }
+  
+  .theme-tooltip {
+      position: absolute;
+      right: 60px;
+      white-space: nowrap;
+      background: var(--card-bg);
+      padding: 6px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+  }
+  
+  .theme-toggle:hover {
+      transform: scale(1.1) rotate(12deg);
+      background: var(--nav-color);
+  }
+  
+  .theme-toggle:hover .theme-tooltip {
+      opacity: 1;
+      right: 70px;
+  }
+  
+  .theme-icon {
+      font-size: 1.6em;
+      transition: transform 0.3s ease;
+  }
+  </style>
+  
+  <style>
+  /* 修改按钮样式 */
+  .theme-toggle {
+      background: transparent;
+      border: none;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+  }
+  
+  .theme-icon {
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+  }
+  
+  .theme-text {
+      color: var(--nav-color);
+      font-family: inherit;
+      font-size: 0.9em;
+  }
+  
+  /* 添加导航栏相同的悬停效果 */
+  .theme-toggle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--nav-color);
+      transition: width 0.3s ease;
+  }
+  
+  .theme-toggle:hover::after {
+      width: 100%;
+  }
+  
+  .theme-toggle:hover .theme-icon {
+      transform: rotate(180deg);
+  }
+  /* 新增暗黑模式样式 */
+  :root {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --card-bg: #f8f9fa;
+  }
+  
+  [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --text-color: #e0e0e0;
+      --card-bg: #2d2d2d;
+  }
+  
+  body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.5s ease;
+  }
+  
+  .card {
+      background-color: var(--card-bg);
+  }
+  
+  .control-buttons {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+  }
+  
+  .control-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--text-color);
+      background: transparent;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+  
+  .control-btn:hover {
+      transform: scale(1.1);
+      background: rgba(0,0,0,0.1);
+  }
+  </style>
+  
+  <script>
+  // 在原有脚本中添加
+  let sakuraEnabled = true;
+  
+  // 主题切换功能
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      document.body.setAttribute('data-theme', isDark ? '' : 'dark');
+      localStorage.setItem('theme', isDark ? '' : 'dark');
+  });
+  
+  // 恢复用户设置
+  document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if(savedTheme) document.body.setAttribute('data-theme', savedTheme);
+      
+      const savedSakura = localStorage.getItem('sakura');
+      sakuraEnabled = savedSakura !== 'false';
+      if(sakuraEnabled) createSakura();
+  });
+  </script>
+  
+  <!-- 主要区域 -->
+  <main id="main-content">
+    <div class="banner-section">
+      <div class="img-container1">
+        <img src="image/8.jpg" alt="邦邦咔邦，爱丽丝成为了CODM大师">
+      </div>
+      <div class="text-container1">
+        <h1>黄桥初中教育集团新城分校初一12班-2024年秋~2025年夏</h1>
+        <p class="class-motto"><b>初一十二，说一不二；披荆斩棘，共创辉煌!</b></p>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="teacher-card card">
+        <h2>教师团队</h2>
+        <p class="teacher-item"><span class="title">班主任:</span> 高明月</p>
+        <p class="teacher-item"><span class="title">语文老师:</span> 杨柳</p>
+        <p class="teacher-item"><span class="title">数学老师:</span> 徐建林</p>
+      </div>
+
+      <div class="student-card card">
+        <h2>班干部</h2>
+        <p class="student-item"><span class="title">班长:</span> 唐宇恒</p>
+        <p class="student-item"><span class="title">语文课代表:</span> 陈瑜</p>
+        <p class="student-item"><span class="title">数学课代表:</span> 鲍恩典</p>
+        <p class="student-item"><span class="title">英语课代表:</span> 谭思源</p>
+        <p class="student-item"><span class="title">生物课代表:</span> 周宇帅</p>
+        <p class="student-item"><span class="title">政治课代表:</span> 仇辰</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- 返回顶部按钮 -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- 音乐播放器 -->
+  <div id="xf-MusicPlayer" data-cdnName="https://player.xfyun.club/js"  data-themeColor="xf-sky" data-songList="13162092656"data-fadeOutAutoplay data-memory="1" data-random="true"></div>
+  
+  <script src="https://player.xfyun.club/js/xf-MusicPlayer/js/xf-MusicPlayer.min.js"></script>
+  <script src="https://player.xfyun.club/js/yinghua.js"></script>
+  
+  <!-- 添加Font Awesome图标库 -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+  <script>
+    // 页面加载动画
+    window.addEventListener('load', function() {
+      const loader = document.querySelector('.loader');
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+      }, 1000);
+    });
+  
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  
+    // 返回顶部按钮
+    const backToTopButton = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+  
+  <!-- 添加对应的CSS样式 -->
+  <style>
+    /* 新增样式 */
+    #main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .banner-section {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .img-container1 img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .teacher-item, .student-item {
+      margin: 10px 0;
+    }
+    
+    .title {
+      font-weight: bold;
+      color: #3498db;
+    }
+    
+    .class-motto {
+      color: #66CCFF;
+      font-size: 1.2em;
+    }
+  </style>
+</body>
+</html>
+
+<style>
+/* 修正暗黑模式作用域 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f8f9fa;
+    --nav-color: #3498db;      /* 新增导航栏颜色变量 */
+    --border-color: #dee2e6;   /* 新增边框颜色变量 */
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --nav-color: #5dade2;       /* 暗黑模式导航栏颜色 */
+    --border-color: #495057;    /* 暗黑模式边框颜色 */
+}
+
+/* 更新受影响元素的样式 */
+nav a {
+    color: var(--nav-color);    /* 应用导航栏颜色变量 */
+}
+
+.card {
+    border: 1px solid var(--border-color);  /* 新增边框样式 */
+}
+</style>
+<style>
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.5s ease;
+}
+
+.card {
+    background-color: var(--card-bg);
+}
+
+.control-buttons {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--text-color);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    background: rgba(0,0,0,0.1);
+}
+</style>
