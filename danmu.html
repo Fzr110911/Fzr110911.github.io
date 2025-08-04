@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>忆往昔小镇 - 留言墙</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #danmuCanvas {
+      display: block;
+      width: 100%;
+      height: 120px;
+      background: #fff0f4;
+      border-bottom: 2px solid #f8c6d8;
+    }
+    .form-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .form-container input {
+      width: 60%;
+      padding: 0.5rem;
+      border: 1px solid #f8c6d8;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .form-container button {
+      padding: 0.5rem 1rem;
+      background: #b03e5c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-left: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .form-container button:disabled {
+      background: #f8c6d8;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>忆往昔小镇 - 留言墙</h1>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="town.html">小镇图鉴</a>
+      <a href="danmu.html">留言墙</a>
+      <a href="env.html">环境展示</a>
+      <a href="gov.html">政务公开</a>
+      <a href="connect.html">加入我们</a>
+    </nav>
+  </header>
+  <main>
+    <canvas id="danmuCanvas"></canvas>
+    <div class="form-container">
+      <input id="danmuInput" type="text" placeholder="留下你的回忆..." />
+      <button id="sendBtn" disabled>发送</button>
+    </div>
+  </main>
+
+  <script src="https://cdn1.lncld.net/static/js/av-min-1.11.0.js"></script>
+  <script>
+    // 替换成你自己的LeanCloud应用ID和Key
+    AV.init({
+      appId: 'h6jSaxTlSFWz7rDjRayW2ysO-gzGzoHsz',
+      appKey: 'KPQjL8rj87mtrvyT85l88suq'
+    });
+
+    const canvas = document.getElementById('danmuCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = 120;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let messages = [];
+
+    function createDanmu(text) {
+      return {
+        text,
+        x: canvas.width,
+        y: Math.random() * (canvas.height - 30) + 20,
+        speed: 2 + Math.random() * 2
+      };
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.font = '20px sans-serif';
+      ctx.fillStyle = '#d6336c';
+
+      messages.forEach((m, i) => {
+        ctx.fillText(m.text, m.x, m.y);
+        m.x -= m.speed;
+        if (m.x + ctx.measureText(m.text).width < 0) {
+          messages.splice(i, 1);
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+
+    async function loadDanmus() {
+      const query = new AV.Query('Danmu');
+      query.descending('createdAt');
+      query.limit(50);
+      try {
+        const results = await query.find();
+        results.forEach(item => {
+          messages.push(createDanmu(item.get('text')));
+        });
+      } catch (e) {
+        console.error('加载弹幕失败', e);
+      }
+    }
+
+    async function sendDanmu() {
+      const input = document.getElementById('danmuInput');
+      const text = input.value.trim();
+      if (!text) return;
+      sendBtn.disabled = true;
+
+      const Danmu = AV.Object.extend('Danmu');
+      const danmu = new Danmu();
+      danmu.set('text', text);
+
+      try {
+        await danmu.save();
+        messages.push(createDanmu(text));
+        input.value = '';
+      } catch (e) {
+        alert('弹幕发送失败，请重试');
+        console.error(e);
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    const input = document.getElementById('danmuInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    input.addEventListener('input', () => {
+      sendBtn.disabled = input.value.trim() === '';
+    });
+
+    sendBtn.onclick = sendDanmu;
+
+    loadDanmus();
+    draw();
+  </script>
+</body>
+</html>
